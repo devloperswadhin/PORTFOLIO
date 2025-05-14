@@ -33,10 +33,78 @@ body {
     overflow-x: hidden;
 }
 
+/* Add these styles to center all sections */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0 20px;
+}
+
+section {
+    text-align: center;
+    margin: 3rem auto;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.social-links {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.social-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.contact-section {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 100%;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.btn.primary {
+    width: 200px;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem;
 }
 
 /* Theme Toggle */
@@ -427,251 +495,6 @@ body {
     margin-bottom: 2rem;
     position: relative;
     padding-left: 20px;
-}
-
-.timeline-item:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background: var(--gradient-1);
-}
-
-.year {
-    font-weight: bold;
-    color: var(--secondary-color);
-    position: relative;
-}
-
-.year:before {
-    content: '';
-    position: absolute;
-    left: -21px;
-    top: 50%;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--secondary-color);
-    transform: translateY(-50%);
-}
-
-/* Dark Mode Effects */
-[data-theme="dark"] .skill-card:hover {
-    box-shadow: 0 0 20px var(--glow-color);
-}
-
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3 {
-    text-shadow: 0 0 15px var(--secondary-color);
-}
-
-/* Timeline */
-.timeline {
-    position: relative;
-    margin: 2rem 0;
-}
-
-.timeline-item {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-/* Dark Mode Glow Effect */
-[data-theme="dark"] h1,
-[data-theme="dark"] h2,
-[data-theme="dark"] h3 {
-    text-shadow: 0 0 10px var(--text-color);
-}
-
-/* Solar System Animation Container */
-.solar-system {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-[data-theme="dark"] .solar-system {
-    opacity: 1;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 1rem;
-    }
-
-    .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .profile-image {
-        width: 150px;
-        height: 150px;
-    }
-
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-}
-
-/* Add new sunrise animation keyframes */
-@keyframes sunrise {
-    0% {
-        transform: translateY(100%) scale(1.5);
-        background: linear-gradient(to top, #ff7e5f, #feb47b);
-        opacity: 0;
-    }
-    50% {
-        transform: translateY(50%) scale(1.2);
-        background: linear-gradient(to top, #feb47b, #ffdb7d);
-        opacity: 0.8;
-    }
-    100% {
-        transform: translateY(0) scale(1);
-        background: linear-gradient(to top, #ffdb7d, #f8f5ff);
-        opacity: 0.2;
-    }
-}
-
-/* Add sun element styles */
-.sun-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.sun {
-    position: absolute;
-    bottom: -50%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: linear-gradient(to top, #ffdb7d, #f8f5ff);
-    box-shadow: 0 0 60px rgba(255, 219, 125, 0.6);
-}
-
-/* Show sun in light mode */
-body:not([data-theme="dark"]) .sun-container {
-    opacity: 1;
-}
-
-body:not([data-theme="dark"]) .sun {
-    animation: sunrise 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* Adjust existing solar system visibility */
-body {
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Enhanced profile section */
-.profile-section {
-    animation: fadeInUp 0.8s ease-out;
-}
-
-.profile-image {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 2rem;
-    border-radius: 50%;
-    overflow: hidden;
-    border: none;
-    position: relative;
-    background: var(--gradient-1);
-    padding: 4px;
-}
-
-.profile-image img {
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Section Spacing */
-.about-section,
-.skills-section {
-    margin-bottom: 6rem;
-    padding: 3rem 0;
-}
-
-/* Skills Grid */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.skill-card {
-    background: var(--card-background);
-    padding: 1.5rem;
-    border-radius: 15px;
-    text-align: center;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-    position: relative;
-    overflow: hidden;
-    animation: fadeInUp 0.8s ease-out;
-    animation-delay: calc(0.1s * var(--i, 1));
-    animation-fill-mode: both;
-}
-
-.skill-card:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-2);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: -1;
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--secondary-color);
-    color: var(--background-color);
-}
-
-.skill-card:hover:before {
-    opacity: 1;
-}
-
-/* Timeline */
-.timeline {
-    position: relative;
-    margin: 2rem 0;
-}
-
-.timeline-item {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    position: relative;
-    padding-left: 20px;
     animation: fadeInUp 0.8s ease-out;
     animation-delay: calc(0.1s * var(--i, 1));
     animation-fill-mode: both;
@@ -898,4 +721,55 @@ body {
     .main-content {
         margin-left: 0;
     }
+}
+
+/* Add these styles for proper section spacing */
+.social-links,
+.contact-section {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    padding: 2rem 0;
+}
+
+.social-links h2,
+.contact-section h2 {
+    margin-bottom: 2.5rem;
+}
+
+.social-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    margin-top: 0.5rem;
+}
+
+.form-group textarea {
+    min-height: 150px;
 }
